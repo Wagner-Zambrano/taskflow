@@ -4,10 +4,14 @@ import 'package:go_router/go_router.dart';
 import '../core/app_theme.dart';
 import '../features/tasks/presentation/task_detail_screen.dart';
 import '../features/tasks/presentation/task_list_screen.dart';
+import '../features/tasks/presentation/task_form_screen.dart';
 
 final GoRouter appRouter = GoRouter(
   routes: [
+    // Pantalla principal: lista de tareas.
     GoRoute(path: '/', builder: (context, state) => const TaskListScreen()),
+
+    // Pantalla de detalle de una tarea.
     GoRoute(
       path: '/task/:id',
       builder: (context, state) {
@@ -16,6 +20,9 @@ final GoRouter appRouter = GoRouter(
         return TaskDetailScreen(taskId: id);
       },
     ),
+
+    // Pantalla para crear una nueva tarea.
+    GoRoute(path: '/new', builder: (context, state) => const TaskFormScreen()),
   ],
 );
 
